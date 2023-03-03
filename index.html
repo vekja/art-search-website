@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Art Search</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Art Search</h1>
+      <form id="art-search">
+        <label for="artist">Artist:</label>
+        <input type="text" id="artist" name="artist" />
+        <br />
+        <div class="modal hidden">
+          <button class="close-modal">&times;</button>
+          <h1>art shown here</h1>
+          <p id="cat-fact"></p>
+        </div>
+
+        <div class="overlay hidden"></div>
+
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <div id="artwork-info"></div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
