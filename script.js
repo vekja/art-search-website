@@ -1,32 +1,57 @@
-"use strict";
-
-const baseUrl = "https://api.artic.edu/api/v1/";
-const searchEndpoint = "artworks/search";
-
+var artInstituteBaseUrl = "https://api.artic.edu/api/v1/";
+var searchEndpoint = "artworks/search";
+var imageBaseUrl =
+  "https://www.artic.edu/iiif/2/{identifier}/full/843,/0/default.jpg";
 function search() {
   let prompt = document.getElementById("artist").value;
-  alert(prompt);
 }
+
 // jquery example
 $(document).ready(function () {
   $("#art-search").submit(function (e) {
-    alert($("#artist").val());
     e.preventDefault();
     var form = $(this);
     var endPointUrl =
-      baseUrl + searchEndpoint + "?q=" + encodeURIComponent($("#artist").val());
-    alert(endPointUrl);
+      artInstituteBaseUrl +
+      searchEndpoint +
+      "?q=" +
+      encodeURIComponent($("#artist").val());
     $.ajax({
       url: endPointUrl,
       success: function (result) {
         console.log(result);
+        buildArtworks(result);
       },
     });
   });
 });
 
+async function buildArtworks(instituteArtworks) {
+  var artInfoArr = [];
+  instituteArtworks.data.forEach(async (artwork) => {
+    var artistName = "";
+    var artTitle = artwork.title;
+    var apiLink = artwork.api_link;
+    var altText = artwork.thumbnail.alt_text;
+    var imageLink = "";
+    //TODO: Make API call with the API link above. Use data to grab artist name and image link.
+    try {
+      let response = await fetch(apiLink);
 
-for (var  i=0; i < Array.length; i++) {
-  for (var j=0; j<arr[i].length; j)
+      let result = await response.json();
+    } catch (error) {
+      debugger;
+      console.error(error);
+    }
+    debugger;
+    let artInfo = {
+      artistName: artistName,
+      artTitle: artTitle,
+      altText: altText,
+      imageLink: imageLink,
+    };
+    artInfoArr.push(artInfo);
+    debugger;
+  });
+  debugger;
 }
-return product
