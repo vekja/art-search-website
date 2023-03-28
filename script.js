@@ -28,22 +28,22 @@ $(document).ready(function () {
 
 async function buildArtworks(instituteArtworks) {
   var artInfoArr = [];
-  instituteArtworks.data.forEach(async (artwork) => {
+  for (let i = 0; i < instituteArtworks.data.length; i++) {
+    var artwork = instituteArtworks.data[i];
     var artistName = "";
     var artTitle = artwork.title;
     var apiLink = artwork.api_link;
     var altText = artwork.thumbnail.alt_text;
     var imageLink = "";
-    //TODO: Make API call with the API link above. Use data to grab artist name and image link.
     try {
       let response = await fetch(apiLink);
-
       let result = await response.json();
-    } catch (error) {
+      artistName = result.data.artist_title;
+      imageLink = imageBaseUrl.replace("{identifier}", result.data.image_id);
       debugger;
+    } catch (error) {
       console.error(error);
     }
-    debugger;
     let artInfo = {
       artistName: artistName,
       artTitle: artTitle,
@@ -51,7 +51,6 @@ async function buildArtworks(instituteArtworks) {
       imageLink: imageLink,
     };
     artInfoArr.push(artInfo);
-    debugger;
-  });
-  debugger;
+  }
+  console.log(artInfoArr);
 }
