@@ -1,12 +1,30 @@
-
-
 body {
-
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background-color: #1a3849;
   text-align: center;
   color: white;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(
+    -45deg,
+    #efbc75,
+    #c1e1a7,
+    #148d8d,
+    #1a4a5a,
+    #0e2c40
+  );
+
+  background-size: 400% 400%;
+  animation: gradient 20s ease infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .container {
@@ -18,11 +36,6 @@ body {
 
 #artwork-container {
   display: none;
-}
-#instructions-for-user {
-  font-size: 20px;
-  padding-bottom: 40px;
-  -webkit-text-stretch: 5px;
 }
 
 h1 { 
@@ -47,26 +60,3 @@ input[type="text"] {
   width: 200px;
 }
 
-body {
-  background: linear-gradient(
-    -45deg,
-    #efbc75,
-    #c1e1a7,
-    #148d8d,
-    #1a4a5a,
-    #0e2c40
-  );
-  background-size: 400% 400%;
-  animation: gradient 20s ease infinite;
-}
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
