@@ -2,11 +2,6 @@ var artInstituteBaseUrl = "https://api.artic.edu/api/v1/";
 var searchEndpoint = "artworks/search";
 var imageBaseUrl =
   "https://www.artic.edu/iiif/2/{identifier}/full/843,/0/default.jpg";
-function search() {
-  let prompt = document.getElementById("artist").value;
-}
-
-// jquery example
 $(document).ready(function () {
   $("#art-search").submit(function (e) {
     e.preventDefault();
@@ -25,8 +20,6 @@ $(document).ready(function () {
     });
   });
 });
-
-
 async function buildArtworks(instituteArtworks) {
   var artInfoArr = [];
   var artworkIds = []; // Keep track of artwork IDs to avoid duplicates
